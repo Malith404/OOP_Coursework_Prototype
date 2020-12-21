@@ -1,0 +1,97 @@
+for (FootballClub footballClub : list_of_footballClubs) {
+                if (matchSimulation.getGoalsScoredHomeTeam() > matchSimulation.getGoalsScoredOpponentTeam()) {
+                    System.out.println("Home Team has won the match...");
+                    noOfMatchesWonHomeTeam = footballClub.getMatchesWon() + 1;
+                    totalMatchesPlayedHomeTeam = footballClub.getNoOfMatchesPlayed() + 1;
+                    totalMatchesPlayedOpponentTeam = footballClub.getNoOfMatchesPlayed() + 1;
+                    noOfMatchesLostOpponentTeam = footballClub.getMatchesLost() + 1;
+                    totalPointsHomeTeam = footballClub.getPointsScored() + 3;
+                    System.out.println("\n");
+                    break;
+                }
+            }
+
+
+            for (FootballClub footballClub : list_of_footballClubs) {
+                if (matchSimulation.getGoalsScoredHomeTeam() < matchSimulation.getGoalsScoredOpponentTeam()) {
+                    System.out.println("Opponent Team has won the match...");
+                    noOfMatchesWonOpponentTeam = footballClub.getMatchesWon() + 1;
+                    totalMatchesPlayedOpponentTeam = footballClub.getNoOfMatchesPlayed() + 1;
+                    totalMatchesPlayedHomeTeam = footballClub.getNoOfMatchesPlayed() + 1;
+                    noOfMatchesLostHomeTeam = (footballClub.getMatchesLost() + 1);
+                    totalPointsOpponentTeam = (footballClub.getPointsScored() + 3);
+                    System.out.println("\n");
+                    break;
+                }
+            }
+
+
+            for (FootballClub footballClub : list_of_footballClubs) {
+                if (matchSimulation.getGoalsScoredHomeTeam() == matchSimulation.getGoalsScoredOpponentTeam()) {
+                    System.out.println("MATCH IS DRAW....");
+                    noOfMatchesDrawHomeTeam = footballClub.getMatchesDrawn() + 1;
+                    noOfMatchesDrawOpponentTeam = footballClub.getMatchesDrawn() + 1;
+                    totalPointsHomeTeam = (footballClub.getPointsScored() + 1);
+                    totalPointsOpponentTeam = (footballClub.getPointsScored() + 1);
+                    System.out.println("\n");
+                    //break;
+                }
+            }
+
+            for (FootballClub footballClub : list_of_footballClubs) {
+                if (footballClub.getClubName().equals(matchSimulation.getHomeTeam())) {
+                    footballClub.setMatchesWon(noOfMatchesWonHomeTeam);
+                    footballClub.setMatchesLost(noOfMatchesLostHomeTeam);
+                    footballClub.setMatchesDrawn(noOfMatchesDrawHomeTeam);
+                    footballClub.setNoOfMatchesPlayed(totalMatchesPlayedHomeTeam);
+                    footballClub.setMatchDate(matchSimulation.getDateOfMatchPlaying());
+                    footballClub.setGoalsScored(matchSimulation.getGoalsScoredHomeTeam() + footballClub.getGoalsScored());
+                    footballClub.setGoalsReceived(matchSimulation.getGoalsScoredOpponentTeam() + footballClub.getGoalsReceived());
+                    footballClub.setPointsScored(totalPointsHomeTeam);
+                    System.out.println("YOU HAVE SUCCESSFULLY ADDED A PLAYED MATCH...");
+                    System.out.println("\n");
+                    break;
+                }
+            }
+            for (FootballClub footballClub : list_of_footballClubs) {
+                if (footballClub.getClubName().equals(matchSimulation.getOpponentTeam())) {
+                    footballClub.setMatchesWon(noOfMatchesWonOpponentTeam);
+                    footballClub.setMatchesLost(noOfMatchesLostOpponentTeam);
+                    footballClub.setMatchesDrawn(noOfMatchesDrawOpponentTeam);
+                    footballClub.setNoOfMatchesPlayed(totalMatchesPlayedOpponentTeam);
+                    footballClub.setMatchDate(matchSimulation.getDateOfMatchPlaying());
+                    footballClub.setGoalsScored(matchSimulation.getGoalsScoredOpponentTeam() + footballClub.getGoalsScored());
+                    footballClub.setGoalsReceived(matchSimulation.getGoalsScoredHomeTeam() + footballClub.getGoalsReceived());
+                    footballClub.setPointsScored(totalPointsOpponentTeam);
+
+                    System.out.println("YOU HAVE SUCCESSFULLY ADDED A PLAYED MATCH...");
+                    System.out.println("\n");
+                    break;
+                }
+
+
+        /*for (FootballClub footballClub : list_of_footballClubs) {
+            if (footballClub.getMatchesWon()!=0 && footballClub.getMatchesLost()!=0 &&
+            footballClub.getMatchesDrawn()!=0 && footballClub.getNoOfMatchesPlayed()!=0 && footballClub.getMatchDate()!=null &&
+            footballClub.getGoalsScored()!=0 && footballClub.getGoalsReceived()!=0) {
+                System.out.println("ERROR ! This Football club is already registered");
+                System.out.println("\n");
+                return;
+            }
+
+            for (FootballClub footballClub : list_of_footballClubs) {
+                if (matchSimulation.getHomeTeam().equals(footballClub.getClubName())) {
+
+                    footballClub.setMatchesWon(matchSimulation.getNoOfMatchesWon());
+                    footballClub.setMatchesLost(matchSimulation.getNoOfMatchesLost());
+                    footballClub.setMatchesDrawn(matchSimulation.getNoMatchesDraw());
+                    footballClub.setNoOfMatchesPlayed(matchSimulation.getTotalMatchesPlayed());
+                    footballClub.setMatchDate(matchSimulation.getDateOfMatchPlaying());
+                    footballClub.setGoalsScored(matchSimulation.getGoalsScored());
+                    footballClub.setGoalsReceived(matchSimulation.getGoalsReceived());
+
+                    System.out.println("YOU HAVE SUCCESSFULLY ADDED A PLAYED MATCH...");
+                    System.out.println("\n");
+                    break;
+                }
+            }*/

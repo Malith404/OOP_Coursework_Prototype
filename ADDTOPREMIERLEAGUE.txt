@@ -1,0 +1,17 @@
+if (list_of_footballClubs.contains(footballClub)){
+            System.out.println("This Football club is already registered");
+            System.out.println("\n");
+        }else if(freeSpacesForClubs == 0){
+            System.out.println("The Football club is Full");
+        }else {
+            list_of_footballClubs.add(footballClub);
+            freeSpacesForClubs -= footballClub instanceof UniversityFootballClub ? 1 : 1;
+            System.out.println("YOU HAVE SUCCESSFULLY ADDED A FOOTBALL CLUB...CHEERS !");
+            System.out.println(freeSpacesForClubs > 0 ? ("Free Slots Remaining to add football clubs: " + freeSpacesForClubs) : "No More Spaces available to add a football club");
+            System.out.println(list_of_footballClubs);
+            System.out.println("\n");
+        }
+        if (freeSpacesForClubs>=maxNoClubs){
+            System.out.println("No spaces available to add any football club");
+            System.out.println("\n");
+        }

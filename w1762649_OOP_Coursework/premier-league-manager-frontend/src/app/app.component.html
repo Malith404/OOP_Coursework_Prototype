@@ -1,0 +1,137 @@
+<!DOCTYPE html> 
+<html><!-- Start the html tag -->
+    <head><!-- Start the head tag -->
+        <title>Premier League Manager</title><!-- title of the html page -->
+    </head><!-- End of the head tag -->
+
+    <body><!-- Start the body tag -->
+        <h1>PREMIER LEAGUE MANAGER</h1><!-- heading of the page -->
+        <div class="search"><!-- division of the search bar and search button -->
+            <!-- day to search -->
+            <input maxlength="4" size="4" style="border-top-left-radius: 15px;border-bottom-left-radius:15px;padding-top: 5px;padding-bottom: 5px;" #search type="text" id="day" name="Day"  placeholder="Day" [(ngModel)]="day"/>   
+            <!-- month to search -->
+            <input  maxlength="4" size="4" style="padding-top: 5px;padding-bottom: 5px;" #search type="text" id="month" name="Month"  placeholder="Month" [(ngModel)]="month"/>    
+            <!-- year to search -->
+            <input  maxlength="4" size="4" style="border-top-right-radius: 15px;border-bottom-right-radius:15px;padding-top: 5px;padding-bottom: 5px;"   #search type="text" id="year" name="Year"  placeholder="Year" [(ngModel)]="year"/> 
+            <!-- button to perform search action -->
+            <!-- if the matches played array is empty disable the button -->
+            <button [disabled]="!matchSimulation || matchSimulation.length===0?true:false" class="searchButton" (click)="searchButton()">Search</button>  
+        </div>
+        <br>
+
+        <!-- modal which displays the dates which was searched by the user -->
+        <div [style.visibility]="searchDatePopUpBox ? 'visible' : 'hidden'" class="modal_filterByDate">
+            <!-- Modal content -->
+            <div class="modal-content_filterByDate">
+              <h1 style="margin-left: 220px;">FILTER BY DATE</h1>
+              <button class="closePopUpFilterDate" (click)="closePopUpFilterByDate()">X</button>
+              <br>
+             
+          <table>
+            <tr>
+                <th class="tablehead" *ngFor="let head of headings_filterByDate">{{head}}</th>  
+            </tr>
+            <tr *ngFor="let matchesPlayed of tempSearchArray">                
+                <td *ngIf="dateFound==true">{{matchesPlayed.homeTeam}}</td> 
+                <td  *ngIf="dateFound==true">{{matchesPlayed.opponentTeam}}</td>
+                <td  *ngIf="dateFound==true">Day : {{matchesPlayed.dateMatchPlayed.day}}, Month : {{matchesPlayed.dateMatchPlayed.month}}, Year : {{matchesPlayed.dateMatchPlayed.year}}</td>
+                <td  *ngIf="dateFound==true">{{matchesPlayed.goalsScoredHomeTeam}}</td>
+                <td  *ngIf="dateFound==true">{{matchesPlayed.goalsScoredOpponentTeam}}</td>              
+                
+            
+            </tr>
+        </table>        
+            </div>          
+        </div>  
+
+        <table id="tableFootballClubs">
+        <tr>
+            <th class="tablehead" *ngFor="let head of headings_footballClub">{{head}}</th>  
+        </tr>
+      
+        <tr *ngFor="let clubs of footballClubs" >    
+            <td>{{clubs.clubName}}</td>
+            <td>{{clubs.country}}</td>
+            <td>{{clubs.location}}</td>
+            <td>{{clubs.noOfMatchesPlayed}}</td>
+            <td>{{clubs.matchesWon}}</td>
+            <td>{{clubs.matchesLost}}</td>
+            <td>{{clubs.matchesDrawn}}</td>
+           <td>{{clubs.goalsScored}}</td>
+           <td>{{clubs.goalsReceived}}</td>
+            <td>{{clubs.pointsScored}}</td>  
+            <td>{{clubs.universityName}}</td>
+            <td>{{clubs.schoolName}}</td>
+            <td>{{clubs.noOfPlayers}}</td>
+        
+        </tr>
+        
+    </table>
+ 
+  
+        <button [disabled]="!footballClubs || footballClubs.length===0?true:false" (click)="sortNoOfWins()" class="sortWinsButton" >SortByNumberOfWins</button>&nbsp; 
+        <button [disabled]="!footballClubs || footballClubs.length===0?true:false" (click)="sortGoalsScored()" class="sortGoalsScoredButton">SortByNumberOf GoalsScored</button>&nbsp;
+        <button [disabled]="!footballClubs || footballClubs.length===0?true:false" class="randomMatchButton" (click)="randomMatch()">Random Match</button>&nbsp;
+        <button [disabled]="!sortByDateAscendingOrder || sortByDateAscendingOrder.length===0?true:false" class="sortByDateButton" (click)="sortByDate()" id="sortByDateButton">Sort By Date</button>
+        <button [disabled]="!footballClubs || footballClubs.length===0?true:false" (click)="sortByPoints()" class="sortByPoints">Sort by Points</button> 
+        <br>
+         
+        <div  [style.visibility]="popUpRandomMatch ? 'visible' : 'hidden'" class="modal_randomMatches">
+            <!-- Modal content -->
+            <div class="modal-content_randomMatches" >
+                <h1 style="margin-left: 220px;">RANDOM MATCH</h1>
+                <table>
+                    <tr>
+                        <th class="tablehead" *ngFor="let head of headingRandomMatch">{{head}}</th>  
+                    </tr>
+                  
+                    <tr *ngFor="let randomMatchValues of randomMatches" >    
+                        <td>{{randomMatchValues.homeTeam}}</td>
+                        <td>{{randomMatchValues.opponentTeam}}</td>
+                        <td>Day : {{randomMatchValues.dateOfMatchPlayed.day}}, Month : {{randomMatchValues.dateOfMatchPlayed.month}}, Year : {{randomMatchValues.dateOfMatchPlayed.year}}</td>
+                        <td>{{randomMatchValues.goalsScoredHomeTeam}}</td>
+                        <td>{{randomMatchValues.goalsScoredOpponentTeam}}</td>                 
+               
+                    </tr>
+                    
+                </table>
+      
+              <button class="closePopUpRandomMatch" (click)="closePopUpRandomMatch()">OK</button>
+            </div>          
+        </div>
+
+        <div [style.visibility]="sortByDatePopUpBox ? 'visible' : 'hidden'" class="modal_sortByDate">
+            <!-- Modal content -->
+            <div class="modal-content_sortByDate" >
+              <h1 style="margin-left: 220px;">SORT BY DATE</h1>
+              <button class="closePopUpSortDate" (click)="closePopUpsortByDate()">X</button>
+
+              <br>
+              
+          <table>
+            <tr>
+                <th class="tablehead" *ngFor="let head of headings_filterByDate">{{head}}</th>  
+            </tr>
+          
+            <tr *ngFor="let sortByDate of sortByDateAscendingOrder" >    
+                <td>{{sortByDate.homeTeam}}</td>
+                <td>{{sortByDate.opponentTeam}}</td>
+                <td>Day : {{sortByDate.dateOfMatchPlayed.day}}, Month : {{sortByDate.dateOfMatchPlayed.month}}, Year : {{sortByDate.dateOfMatchPlayed.year}}</td>
+                <td>{{sortByDate.goalsScoredHomeTeam}}</td>
+                <td>{{sortByDate.goalsScoredOpponentTeam}}</td>                        
+            </tr>
+            
+        </table>
+            </div>          
+        </div>    
+           
+    </body>
+<script>
+
+   var tableOfFootballCLubs=document.getElementById("tableFootballClubs");
+    tableOfFootballCLubs.refresh();
+
+</script>
+</html>
+
+
