@@ -98,7 +98,8 @@ public class ConsoleSystem extends Application implements Serializable {
     private static void displayMenu() {
         //Display the menu
 
-        System.out.println("=================WELCOME TO THE FOOTBALL PREMIER LEAGUE [2020-2021]=================");
+        System.out.println("------------------------------/*\\-------------------------------------");
+        System.out.println("=================WELCOME TO THE FOOTBALL PREMIER LEAGUE=================");
         System.out.println("\n");
         System.out.println("......................................................");
         System.out.println("1. Add a club to the premier League Manager");
@@ -110,6 +111,8 @@ public class ConsoleSystem extends Application implements Serializable {
         System.out.println("7. Open Premier League GUI");
         System.out.println("8. Exit");
         System.out.println("......................................................");
+        System.out.println("------------------------------\\*/-------------------------------------");
+
         System.out.println("\n");
 
     }

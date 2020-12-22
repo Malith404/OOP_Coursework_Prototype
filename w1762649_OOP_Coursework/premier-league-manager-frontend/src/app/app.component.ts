@@ -12,33 +12,38 @@ import { MatchSimulation } from './classes/MatchSimulation';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  popUpRandomMatch = false;
-  sortByDatePopUpBox = false;
-  searchDatePopUpBox = false;
-  title = 'Premier League Manager';
-  footballClubs:FootballClubs[];
-  matchSimulation:MatchSimulation[];
-  randomMatches:RandomMatches[];
-  sortByDateAscendingOrder:SortByDate[];
+  popUpRandomMatch = false;//random match popup set to false
+  sortByDatePopUpBox = false;//sort date pop up set to false
+  searchDatePopUpBox = false;//search date pop up set to false
+  title = 'Premier League Manager';//title of the angular project
 
+  footballClubs:FootballClubs[];//football club array 
+  matchSimulation:MatchSimulation[];//matches played array
+  randomMatches:RandomMatches[];//random match playing array
+  sortByDateAscendingOrder:SortByDate[];//sort date in ascending order array
+
+  //day,month and year which contain the user input values in the search field
   day:number;
   month:number;
   year:number;
 
   
-
+//headings of the tables 
 public headings_footballClub=["Club Name", "Country", "Location","No Of Matches Played", "Matches Won", "Matches Lost", "Matches Drawn", "Goals Scored", "Goals Received", "Points Scored","University Name","School Name","No Of Players"];
 public headingSearch=["Home Team", "Opponent Team", "Date Of Match Played","Goals Scored Home Team", "Goals Scored Opponent Team"];
 public headings_filterByDate=["Home Team", "Opponent Team", "Date Of Match Played","Goals Scored Home Team", "Goals Scored Opponent Team"];
 public headingRandomMatch=["Home Team", "Opponent Team", "Date Of Match Played","Goals Scored Home Team", "Goals Scored Opponent Team"];
 
- 
+//clock and clock handle
+clock=""
+clockHandle;
   constructor(private _freeApiService:FreeapiService) { 
    
   }
 
   ngOnInit(){
     
+    //get the football clubs from the http://localhost:9000
     this._freeApiService.getFootballClubs()
     .subscribe(
       data =>{
@@ -47,6 +52,7 @@ public headingRandomMatch=["Home Team", "Opponent Team", "Date Of Match Played",
          }
     );  
 
+    //get the football clubs from the http://localhost:9000/sortByDate
     this._freeApiService.getSortByDate()
     .subscribe(
       data =>{      
@@ -55,6 +61,7 @@ public headingRandomMatch=["Home Team", "Opponent Team", "Date Of Match Played",
       }      
     );
 
+    //get the football clubs from the http://localhost:9000/matchesPlayed
     this._freeApiService.getMatchSimulation()
     .subscribe(
       data =>{      
@@ -62,10 +69,13 @@ public headingRandomMatch=["Home Team", "Opponent Team", "Date Of Match Played",
       
       }      
     );    
- 
-
+   
+  //https://stackblitz.com/edit/angular-clock-1-q2tuyq?file=src%2Fapp%2Fapp.component.html
+   this.clockHandle = setInterval(()=>{
+        this.clock = new Date().toLocaleString();},1000);
   }
 
+//search field elements
 dateFound=false;
 alertBox=false;
 homeTeam:string;
@@ -75,9 +85,13 @@ goalsScoredHomeTeam:number;
 goalsScoredOpponentTeam:number;
 tempSearchArray=new Array();
 
+//search function
 searchButton(){  
+
+//empty the array in begining of each loop
 this.tempSearchArray=[];
  
+  //find if the date entered by the user is in the array
    for(let matchSimulationSearch of this.matchSimulation){
         if((this.day==matchSimulationSearch.dateOfMatchPlayed.day) && (this.month==matchSimulationSearch.dateOfMatchPlayed.month) && (this.year==matchSimulationSearch.dateOfMatchPlayed.year)){
           this.homeTeam=matchSimulationSearch.homeTeam;
@@ -85,19 +99,26 @@ this.tempSearchArray=[];
           this.dateOfMatchPlayed={day: matchSimulationSearch.dateOfMatchPlayed.day,month:matchSimulationSearch.dateOfMatchPlayed.month,year:matchSimulationSearch.dateOfMatchPlayed.year}
           this.goalsScoredHomeTeam=matchSimulationSearch.goalsScoredHomeTeam;
           this.goalsScoredOpponentTeam=matchSimulationSearch.goalsScoredOpponentTeam;  
+          //if the date is in the array displaying the modal
           this.searchDatePopUpBox=true;  
-          this.dateFound=true;             
+          //if the date is in the array making the datefound boolean value to true
+          this.dateFound=true; 
+          //if the date is in the array pushing the relavent information to the temporary array     
           this.tempSearchArray.push({homeTeam:matchSimulationSearch.homeTeam,opponentTeam:matchSimulationSearch.opponentTeam,dateMatchPlayed:matchSimulationSearch.dateOfMatchPlayed,goalsScoredHomeTeam:matchSimulationSearch.goalsScoredHomeTeam,goalsScoredOpponentTeam:matchSimulationSearch.goalsScoredOpponentTeam});
         }
     }
     
+  //if the length of the temporary array is 0 making the day,month and year text filds to null and displaying an alert box
+  if(this.tempSearchArray.length==0){
   for(let matchSimulationSearch of this.matchSimulation){
+    //displaying an error message if one component of the date is found
     if((this.day==matchSimulationSearch.dateOfMatchPlayed.day) || (this.month==matchSimulationSearch.dateOfMatchPlayed.month) || (this.year==matchSimulationSearch.dateOfMatchPlayed.year)){
       this.day=null;
       this.month=null;
       this.year=null;
       alert("ERROR ! DATE CANNOT BE FOUND !!!");
-     break;
+      break;
+    //displaying an error message if all the components of the date are not found
    }if(!((this.day==matchSimulationSearch.dateOfMatchPlayed.day) && (this.month==matchSimulationSearch.dateOfMatchPlayed.month) && (this.year==matchSimulationSearch.dateOfMatchPlayed.year))){
     this.day=null;
     this.month=null;
@@ -105,10 +126,12 @@ this.tempSearchArray=[];
     alert("ERROR ! DATE CANNOT BE FOUND !!!");
      break;
    }
+   break;
   }
 }   
+}
 
-  
+//close the filter by date modal after the button click
 closePopUpFilterByDate(){
   this.searchDatePopUpBox=false;
 
@@ -314,5 +337,9 @@ closePopUpsortByDate(){
   this.sortByDatePopUpBox=false;
 }
 
+
+
 }
+
+
 
