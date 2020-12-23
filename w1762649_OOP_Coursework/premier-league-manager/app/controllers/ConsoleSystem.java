@@ -1,6 +1,5 @@
 package controllers;
-import javafx.application.Application;
-import javafx.stage.Stage;
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -9,19 +8,14 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 
-public class ConsoleSystem extends Application implements Serializable {
+public class ConsoleSystem implements Serializable {
     static LeagueManager premierLeagueManager = new PremierLeagueManager();
     final static Scanner User_Input = new Scanner(System.in);//scanner for the user inputs
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+    public static void main(String[] args) throws IOException, URISyntaxException {
 
         try {
-            // Sleep for 7 Seconds
+            // Sleep for 5 Seconds
             System.out.println("\n");
             System.out.println("......................................................");
             System.out.println("YOU ARE ENTERING TO THE PREMIER LEAGUE OF 2020-2021");
@@ -29,13 +23,14 @@ public class ConsoleSystem extends Application implements Serializable {
             System.out.println("server is getting ready !!! PLEASE WAIT ...");
             System.out.println("......................................................");
             System.out.println("\n");
-            Thread.sleep(7000);
+            Thread.sleep(5000);
             System.out.println("*******************HERE WE GO*********************");
             System.out.println("\n");
         }catch(InterruptedException interruptedException) {
             System.out.println(interruptedException);
         }
 
+        //run the playframework and angular in two cmds at the start of the premier league championship
         ProcessBuilder processBuilderPlayFrameWork=new ProcessBuilder();
         processBuilderPlayFrameWork.command("cmd.exe","/c","start sbt run");
         processBuilderPlayFrameWork.directory(new File("../premier-league-manager"));
@@ -45,6 +40,7 @@ public class ConsoleSystem extends Application implements Serializable {
         processBuilderAngular.directory(new File("../premier-league-manager-frontend"));
 
         try {
+            //start the cmds to run the playframework and angular projects
             processBuilderPlayFrameWork.start();
             processBuilderAngular.start();
         }catch (Exception exception){
@@ -98,8 +94,8 @@ public class ConsoleSystem extends Application implements Serializable {
     private static void displayMenu() {
         //Display the menu
 
-        System.out.println("------------------------------/*\\-------------------------------------");
-        System.out.println("=================WELCOME TO THE FOOTBALL PREMIER LEAGUE=================");
+        System.out.println("------------------------------------------/*\\-------------------------------------------");
+        System.out.println("=================WELCOME TO THE FOOTBALL PREMIERE LEAGUE CHAMPIONSHIP=================");
         System.out.println("\n");
         System.out.println("......................................................");
         System.out.println("1. Add a club to the premier League Manager");
@@ -111,7 +107,7 @@ public class ConsoleSystem extends Application implements Serializable {
         System.out.println("7. Open Premier League GUI");
         System.out.println("8. Exit");
         System.out.println("......................................................");
-        System.out.println("------------------------------\\*/-------------------------------------");
+        System.out.println("------------------------------------------\\*/------------------------------------------");
 
         System.out.println("\n");
 
@@ -422,7 +418,6 @@ public class ConsoleSystem extends Application implements Serializable {
 
             //year of the match played
             System.out.println("Year of the match played : 2020");
-//            int year = User_Input.nextInt();//year of the match played to set to the match simulation constructor
            int year=2020;
             System.out.println("\n");
 
@@ -465,7 +460,7 @@ public class ConsoleSystem extends Application implements Serializable {
     }
 
 
-    private void premierLeagueGUI() throws URISyntaxException, IOException {
+    private static void premierLeagueGUI() throws URISyntaxException, IOException {
 //        premierLeagueManager.displayPremierLeagueTableGUI();//calling the GUI table of the premier league
         Desktop.getDesktop().browse(new URI("http://localhost:9000"));
         Desktop.getDesktop().browse(new URI("http://localhost:4200"));

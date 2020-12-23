@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class SortByDateAngular extends Controller {
+public class SortByDateController extends Controller {
 
+    //convert the match simulation array to json
     public Result getSortByDateToJson() {
         List<MatchSimulation> matchSimulations = matchesPlayed_readFromFile();
 
@@ -27,6 +28,7 @@ public class SortByDateAngular extends Controller {
             FileInputStream fileInputStream = new FileInputStream("matchSimulation.txt");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
+            //read to end of the file and add to the arraylist
             while (true) {
                 MatchSimulation matchSimulation = (MatchSimulation) objectInputStream.readObject();
 

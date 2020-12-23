@@ -12,5 +12,5 @@ public interface LeagueManager {
     void addPlayedMatch(String homeTeamPlaying, String opponentTeamPlaying, DateMatchesPlayed dateMatchPlaying, int goalsScoredHomeTeam, int goalsScoredOpponentTeam);
     void saveInAFile() ;
     void loadFromFile() throws IOException;
-    void displayPremierLeagueTableGUI();
+//    void displayPremierLeagueTableGUI();
 }

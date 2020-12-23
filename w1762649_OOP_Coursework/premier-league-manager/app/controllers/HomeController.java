@@ -19,6 +19,7 @@ public class HomeController extends Controller {
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
+    //convert football club arraylist to json format
     public Result getFootballClubsToJson() {
         List<FootballClub> footballClubs = footballClubs_readFromFile();
 
@@ -37,6 +38,7 @@ public class HomeController extends Controller {
             FileInputStream fileInputStream1 = new FileInputStream("footballClubPremierLeague.txt");
             ObjectInputStream objectInputStream1 = new ObjectInputStream(fileInputStream1);
 
+            //read to end of the file and add to the arraylist
             while (true) {
                 FootballClub footballClub = (FootballClub) objectInputStream1.readObject();
 
@@ -61,6 +63,7 @@ public class HomeController extends Controller {
 
     /*Match Simulation*/
 
+    //convert matchsimulation arraylist to json
     public Result getMatchesPlayedToJson() {
         List<MatchSimulation> matchSimulation = matchesPlayed_readFromFile();
 
@@ -79,6 +82,7 @@ public class HomeController extends Controller {
             FileInputStream fileInputStream = new FileInputStream("matchSimulation.txt");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
+            //read to end of the file and add to the arraylist
             while (true) {
                 MatchSimulation matchSimulation = (MatchSimulation) objectInputStream.readObject();
 
