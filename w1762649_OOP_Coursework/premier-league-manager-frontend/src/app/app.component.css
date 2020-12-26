@@ -10,9 +10,11 @@ h1{
 body{
   background-color: #E0FFFF;
   background-image: url(Images/premier-league-logo.jpg);
-  background-size: 1710px;
+  /* background-size: 1710px; */
   background-repeat: no-repeat;
-  background-size: auto;
+  width: 100%;
+  height: auto;
+
 }
 
 /* search field alignment */
@@ -42,7 +44,6 @@ body{
 table{
     width: 100%;    
     line-height: 250%;
-    padding-bottom: 150px;
     overflow:auto;
 }
 
@@ -64,6 +65,7 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
     padding-bottom: 10px;
     margin: 25px;
     cursor: grab;
+    border-radius: 50px;
 }
 
 /*  sort wins in descending order button, hover  */
@@ -81,6 +83,8 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
     padding-bottom: 10px;
     margin: 25px;
     cursor: grab;
+    border-radius: 50px;
+
 }
 
 /*  sort goals scored in descending order button, hover  */
@@ -97,6 +101,8 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
     padding-bottom: 10px;
     margin: 25px;
     cursor: grab;
+    border-radius: 50px;
+
 }
 
  /*  random matches playing button, hover  */
@@ -113,6 +119,8 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
     padding-bottom: 10px;
     margin: 25px;
     cursor: grab;
+    border-radius: 50px;
+
  }
 
  /*  sort date in descending order button, hover  */
@@ -129,6 +137,8 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
   padding-bottom: 10px;
   margin: 28px;
   cursor: grab;
+  border-radius: 50px;
+
 }
 
 /*  sort points in descending order button, hover  */
@@ -155,6 +165,7 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
     background-color: #00d1cc; /* background color */
     margin: auto;
     padding: 20px;
+    padding-bottom: 100px;
     border: 1px solid #888;
   }
   
@@ -169,7 +180,7 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
     margin: 0px;
     float: right;
     margin-left: 850px;
-    margin-top: -40px;
+    margin-top: 40px;
     cursor: grab;
 }
 
@@ -199,6 +210,8 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
+    padding-bottom: 100px;
+
   }
   
  /* close modal of date sorted in descending order*/
@@ -267,22 +280,30 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
 
 /* calender design and alignment */
 .calender{
-  margin-left: 1150px;
-  margin-top: 20px;
+  margin-left: 1130px;
+  margin-top: -80px;
   font-family: Orbitron;
 
 }
 
 /* clock design and alignment */
 .clock{
-  margin-left: 10px;
-  margin-top: -6px;
+  margin-right: 930px;
+  margin-top: -9px;
   color:darkcyan;
   font-size: 20px;
   font-family: Orbitron;
   letter-spacing: 7px;
   font-weight: bold;
   background-color: black;
-  float: left;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 2px;
+}
 
+.footerallignment{
+  margin-bottom: 350px;
+  background-color:     #132639
+  ;
 }
