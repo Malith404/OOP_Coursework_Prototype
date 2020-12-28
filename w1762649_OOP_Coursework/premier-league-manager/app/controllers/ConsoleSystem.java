@@ -18,7 +18,7 @@ public class ConsoleSystem implements Serializable {
             // Sleep for 5 Seconds
             System.out.println("\n");
             System.out.println("......................................................");
-            System.out.println("YOU ARE ENTERING TO THE PREMIER LEAGUE OF 2020-2021");
+            System.out.println("YOU ARE ENTERING TO THE PREMIER LEAGUE");
             System.out.println("\n");
             System.out.println("server is getting ready !!! PLEASE WAIT ...");
             System.out.println("......................................................");
