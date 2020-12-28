@@ -6,6 +6,7 @@
 
     <body><!-- Start the body tag -->
         <ul>
+         <!-- buttons which perform sort wins,goals scored,points in descending order,button which sorts the dates in ascending order,button which play a random match-->
             <li> <button [disabled]="!footballClubs || footballClubs.length===0?true:false" (click)="sortNoOfWins()" class="sortWinsButton" >Sort by Number of Wins</button>&nbsp; 
             </li>
             <li> <button [disabled]="!footballClubs || footballClubs.length===0?true:false" (click)="sortGoalsScored()" class="sortGoalsScoredButton">Sort by Number of Goals Scored</button>&nbsp;
@@ -16,7 +17,8 @@
             </li>
             <li> <button [disabled]="!footballClubs || footballClubs.length===0?true:false" (click)="sortByPoints()" class="sortByPoints">Sort by Points</button> 
             </li>
-            
+
+            <!-- Calender -->    
             <li style="float: right;" class="calender">
                 <div class="calender">
                     <label for="Calender" style="font-size: 20px;color:darkcyan;background-color: black;"><b>Calender:</b></label>
@@ -103,24 +105,6 @@
         
     </table>
  
-    <!-- <div class="a"> -->
-        <!-- buttons which perform sort wins,goals scored,points in descending order,button which sorts the dates in ascending order,button which play a random match-->
-        <!-- <button [disabled]="!footballClubs || footballClubs.length===0?true:false" (click)="sortNoOfWins()" class="sortWinsButton" >Sort by Number of Wins</button>&nbsp; 
-        <button [disabled]="!footballClubs || footballClubs.length===0?true:false" (click)="sortGoalsScored()" class="sortGoalsScoredButton">Sort by Number of Goals Scored</button>&nbsp;
-        <button [disabled]="!footballClubs || footballClubs.length===0?true:false" class="randomMatchButton" (click)="randomMatch()">Random Match</button>&nbsp;
-        <button [disabled]="!sortByDateAscendingOrder || sortByDateAscendingOrder.length===0?true:false" class="sortByDateButton" (click)="sortByDate()" id="sortByDateButton">Sort by Date</button>
-        <button [disabled]="!footballClubs || footballClubs.length===0?true:false" (click)="sortByPoints()" class="sortByPoints">Sort by Points</button> 
-        <br> -->
-
-        <!-- Calender -->     
-        <!-- <div class="calender">
-            <label for="Calender" style="font-size: 20px;color:darkcyan;background-color: black;"><b>Calender:</b></label>
-            <input type="date" id="calender" name="calender">
-        </div> -->
-
-        <!-- Digital clock -->
-        <!-- <div class="clock"> {{clock}} </div>   -->
-    <!-- </div> -->
         <!-- Modal which displays the random matches playing -->
         <div  [style.visibility]="popUpRandomMatch ? 'visible' : 'hidden'" class="modal_randomMatches">
             <div class="modal-content_randomMatches" >

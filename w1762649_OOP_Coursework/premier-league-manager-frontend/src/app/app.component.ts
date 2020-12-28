@@ -51,14 +51,14 @@ public headingRandomMatch=["Home Team", "Opponent Team", "Date Of Match Played",
 //clock and clock handle
 clock=""
 clockHandle;
-  constructor(private _freeApiService:FreeapiService) { 
+  constructor(private apiService:FreeapiService) { 
    
   }
 
   ngOnInit(){
     
     //get the football clubs from the http://localhost:9000
-    this._freeApiService.getFootballClubs()
+    this.apiService.getFootballClubs()
     .subscribe(
       data =>{
         this.footballClubs = data;
@@ -67,7 +67,7 @@ clockHandle;
     );  
 
     //get the football clubs from the http://localhost:9000/sortByDate
-    this._freeApiService.getSortByDate()
+    this.apiService.getSortByDate()
     .subscribe(
       data =>{      
           this.sortByDateAscendingOrder = data;
@@ -76,7 +76,7 @@ clockHandle;
     );
 
     //get the football clubs from the http://localhost:9000/matchesPlayed
-    this._freeApiService.getMatchSimulation()
+    this.apiService.getMatchSimulation()
     .subscribe(
       data =>{      
           this.matchSimulation = data;          
@@ -215,7 +215,7 @@ sortByPoints(){
 randomMatch(){   
 
   //call the api after every button click(new random match will be generated)
-  this._freeApiService.getRandomMatches()
+  this.apiService.getRandomMatches()
   .subscribe(
     data =>{      
         this.randomMatches = data;      

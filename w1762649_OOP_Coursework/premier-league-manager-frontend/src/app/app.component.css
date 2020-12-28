@@ -184,16 +184,13 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
   
 /* The Modal which displays date sorted in descending order */
 .modal_sortByDate {
-    position: fixed; /* Stay in fixed place */
+    position: absolute; /* Stay in fixed place */
     z-index: 1; /* place on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* width size */
     height: 100%; /* height size*/
-    overflow: auto; /* Enable scroll if needed */
-  
-
   }
   
   /* Modal Content which displays date sorted in descending order*/
@@ -228,14 +225,13 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
 
  /* The Modal which displays dates which was filtered after searching */
 .modal_filterByDate {
-  position: fixed; /* Stay fixed */
+  position: absolute; /* Stay fixed */
   z-index: 1; /* plce on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* width size*/
   height: 100%; /* height size*/
-  overflow: auto; /* Enable scroll if needed */
 
 }
 

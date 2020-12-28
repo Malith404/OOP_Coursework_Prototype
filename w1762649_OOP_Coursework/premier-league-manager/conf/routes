@@ -6,7 +6,7 @@
 
 GET     /                           controllers.HomeController.getFootballClubsToJson()
 GET     /matchesPlayed              controllers.HomeController.getMatchesPlayedToJson()
-GET     /randomMatch                controllers.RandomMatchAngularController.getRandomMatchToJson()
+GET     /randomMatch                controllers.RandomMatchController.getRandomMatchToJson()
 GET     /sortByDate                 controllers.SortByDateController.getSortByDateToJson()
 
 # Map static resources from the /public folder to the /assets URL path
