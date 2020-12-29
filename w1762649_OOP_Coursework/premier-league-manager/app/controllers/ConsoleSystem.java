@@ -1,10 +1,8 @@
 package controllers;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 
@@ -460,10 +458,22 @@ public class ConsoleSystem implements Serializable {
     }
 
 
-    private static void premierLeagueGUI() throws URISyntaxException, IOException {
-//        premierLeagueManager.displayPremierLeagueTableGUI();//calling the GUI table of the premier league
-        Desktop.getDesktop().browse(new URI("http://localhost:9000"));
-        Desktop.getDesktop().browse(new URI("http://localhost:4200"));
+    private static void premierLeagueGUI(){
+
+        //open localhost:9000 and localhost:4200
+        ProcessBuilder processBuilderPlayFramework=new ProcessBuilder();
+        processBuilderPlayFramework.command("cmd.exe","/c","start microsoft-edge:http://localhost:9000");
+
+        ProcessBuilder processBuilderAngular=new ProcessBuilder();
+        processBuilderAngular.command("cmd.exe","/c","start microsoft-edge:http://localhost:4200");
+
+        try {
+            //start the cmds to run the playframework and angular projects
+            processBuilderPlayFramework.start();
+            processBuilderAngular.start();
+        }catch (Exception exception){
+            System.out.println(exception);
+        }
 
     }
 
