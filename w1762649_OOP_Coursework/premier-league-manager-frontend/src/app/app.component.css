@@ -191,6 +191,7 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
     top: 0;
     width: 100%; /* width size */
     height: 100%; /* height size*/
+    overflow: auto;/*If the height exceeds the default size insert a scrool bar*/
   }
   
   /* Modal Content which displays date sorted in descending order*/
@@ -232,6 +233,7 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
   top: 0;
   width: 100%; /* width size*/
   height: 100%; /* height size*/
+  overflow: auto;/*If the height exceeds the default size insert a scrool bar*/
 
 }
 
@@ -288,12 +290,7 @@ tr:nth-child(odd) {background-color:    #ccd9ff;}/*stripped rows*/
   margin-left: -250px;
 }
 
-.a{
-  background-color: gray;
-  position: relative;
-  width: 100%;
-}
-
+/* header of the page */
 ul {
   list-style-type: none;
   margin: 0;
@@ -305,20 +302,4 @@ ul {
 
 li {
   float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #111;
-}
-
-.active {
-  background-color: #4CAF50;
 }
