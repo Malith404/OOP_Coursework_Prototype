@@ -1,21 +1,5 @@
 package controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.stage.Stage;
-
 import java.io.*;
 import java.util.*;
 
@@ -95,7 +79,7 @@ public class PremierLeagueManager implements LeagueManager, Serializable {
                 if (footballClub.getClubName().equals(clubName)) {//if the club name is inside the arraylist
                     foundClub = true;//making the boolean value to true
                     list_of_footballClubs.remove(footballClub);//removing the relevant club from the list of football clubs
-                    System.out.println("SAD NEWS !!!");
+                    System.out.println("SAD NEWS !!! YOU HAVE SUCCESSFULLY DELETED THE CLUB");
                     System.out.printf("A %s has Left the Football Club List.%n", footballClub instanceof UniversityFootballClub ? "University Football Club" : "School Football Club");
                     freeSpacesForClubs += footballClub instanceof UniversityFootballClub ? 1 : 1;//updating the free slots in the list of football clubs
                     System.out.println("\n");

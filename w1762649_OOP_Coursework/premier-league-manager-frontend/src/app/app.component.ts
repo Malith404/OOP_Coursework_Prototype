@@ -1,9 +1,9 @@
 import { Component} from '@angular/core';
-import { FootballClubs } from './classes/FootballClubs';
-import { FreeapiService } from './services/freeapi.service';
-import {RandomMatches} from './classes/randomMatches';
-import {SortByDate} from './classes/SortByDate';
-import { MatchSimulation } from './classes/MatchSimulation';
+import { FootballClubs } from './frontendClasses/FootballClubs';
+import { FreeapiService } from './apiService/apiServices.service';
+import {RandomMatches} from './frontendClasses/randomMatches';
+import {SortByDate} from './frontendClasses/SortByDate';
+import { MatchSimulation } from './frontendClasses/MatchSimulation';
 
 
 @Component({

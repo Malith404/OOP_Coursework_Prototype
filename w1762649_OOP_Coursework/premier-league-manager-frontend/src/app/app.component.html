@@ -11,7 +11,7 @@
             </li>
             <li> <button [disabled]="!footballClubs || footballClubs.length===0?true:false" (click)="sortGoalsScored()" class="sortGoalsScoredButton">Sort by Number of Goals Scored</button>&nbsp;
             </li>
-            <li> <button [disabled]="!footballClubs || footballClubs.length===0?true:false" class="randomMatchButton" (click)="randomMatch()">Random Match</button>&nbsp;
+            <li> <button [disabled]="!footballClubs || footballClubs.length < 2?true:false" class="randomMatchButton" (click)="randomMatch()">Random Match</button>&nbsp;
             </li>
             <li> <button [disabled]="!sortByDateAscendingOrder || sortByDateAscendingOrder.length===0?true:false" class="sortByDateButton" (click)="sortByDate()" id="sortByDateButton">Sort by Date</button>
             </li>
@@ -171,6 +171,5 @@
     
  </script>
 </body>
-
 
 </html>

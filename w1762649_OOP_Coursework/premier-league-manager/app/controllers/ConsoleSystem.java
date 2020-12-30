@@ -18,7 +18,7 @@ public class ConsoleSystem implements Serializable {
             System.out.println("......................................................");
             System.out.println("YOU ARE ENTERING TO THE PREMIER LEAGUE");
             System.out.println("\n");
-            System.out.println("server is getting ready !!! PLEASE WAIT ...");
+            System.out.println("SERVER IS GETTING READY... !!! PLEASE WAIT ...");
             System.out.println("......................................................");
             System.out.println("\n");
             Thread.sleep(5000);
