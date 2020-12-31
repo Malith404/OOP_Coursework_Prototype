@@ -20,10 +20,20 @@ public class HomeControllerTest extends WithApplication {
     }
 
     @Test
-    public void testIndex() {
+    public void footballClubListTest() {
         Http.RequestBuilder request = new Http.RequestBuilder()
                 .method(GET)
                 .uri("/");
+
+        Result result = route(app, request);
+        assertEquals(OK, result.status());
+    }
+
+    @Test
+    public void matchesPlayedListTest() {
+        Http.RequestBuilder request = new Http.RequestBuilder()
+                .method(GET)
+                .uri("/matchesPlayed");
 
         Result result = route(app, request);
         assertEquals(OK, result.status());
