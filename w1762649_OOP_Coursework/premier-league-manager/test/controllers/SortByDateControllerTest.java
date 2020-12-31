@@ -12,7 +12,7 @@ import static play.mvc.Http.Status.OK;
 import static play.test.Helpers.GET;
 import static play.test.Helpers.route;
 
-public class RandomMatchControllerTest extends WithApplication {
+public class SortByDateControllerTest extends WithApplication {
 
     @Override
     protected Application provideApplication() {
@@ -20,10 +20,10 @@ public class RandomMatchControllerTest extends WithApplication {
     }
 
     @Test
-    public void randomMatchListTest() {
+    public void sortByDateListTest() {
         Http.RequestBuilder request = new Http.RequestBuilder()
                 .method(GET)
-                .uri("/randomMatch");
+                .uri("/sortByDate");
 
         Result result = route(app, request);
         assertEquals(OK, result.status());
